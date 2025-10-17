@@ -17,12 +17,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
+      - name: Extract repository owner
+        id: owner
+        run: echo "owner=$(echo ${{ github.repository }} | cut -d'/' -f1)" >> $GITHUB_OUTPUT
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@guigui42'
+          scope: '@${{ steps.owner.outputs.owner }}'
       
       - name: Install dependencies
         run: npm ci
@@ -32,6 +36,11 @@ jobs:
       
       - name: Build
         run: npm run build
+      
+      - name: Update package name with repository owner
+        run: |
+          OWNER=$(echo ${{ github.repository }} | cut -d'/' -f1)
+          npm pkg set name="@${OWNER}/packmind-mcp-server"
       
       - name: Publish to GitHub Packages
         run: npm publish

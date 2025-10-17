@@ -6,9 +6,9 @@ Before the automatic publishing workflow can work, you need to authenticate with
 
 1. Users who want to install the package need to authenticate with GitHub Packages by creating a Personal Access Token (PAT) with the `read:packages` scope.
 
-2. Add the following to your `~/.npmrc` file:
+2. Add the following to your `~/.npmrc` file (replace `OWNER` with the repository owner, e.g., `PackmindHub`):
    ```
-   @guigui42:registry=https://npm.pkg.github.com
+   @OWNER:registry=https://npm.pkg.github.com
    //npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
    ```
 
@@ -31,6 +31,7 @@ To publish a new version to GitHub Packages:
    - Install dependencies
    - Run linter
    - Build the TypeScript code
+   - Update the package name with the repository owner
    - Publish to GitHub Packages
 
 ## Manual Trigger
@@ -42,10 +43,16 @@ You can also manually trigger the workflow from the GitHub Actions tab:
 
 ## Using the Published Package
 
-Once published, users can install it with:
+Once published, users can install it with (replace `OWNER` with the repository owner):
 
 ```bash
-npx @guigui42/packmind-mcp-server
+npx @OWNER/packmind-mcp-server
+```
+
+For the official PackmindHub repository:
+
+```bash
+npx @PackmindHub/packmind-mcp-server
 ```
 
 For use in VS Code or Cursor, users should configure their MCP settings as described in the README.md.

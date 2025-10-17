@@ -9,7 +9,7 @@ MCP server for Packmind API integration, providing AI assistants access to your 
 You can use the package directly via NPX from GitHub Packages:
 
 ```bash
-npx @guigui42/packmind-mcp-server
+npx @PackmindHub/packmind-mcp-server
 ```
 
 For GitHub Copilot (VSCode), add this to your `.vscode/mcp.json`:
@@ -19,7 +19,7 @@ For GitHub Copilot (VSCode), add this to your `.vscode/mcp.json`:
     "packmind": {
       "command": "npx",
       "args": [
-        "@guigui42/packmind-mcp-server"
+        "@PackmindHub/packmind-mcp-server"
       ],
       "env": {
         "PACKMIND_API_KEY": "YOUR_API_KEY"
@@ -36,7 +36,7 @@ For Cursor, go to "Settings -> MCP -> Add a new global MCP server":
     "packmind": {
       "command": "npx",
       "args": [
-        "@guigui42/packmind-mcp-server"
+        "@PackmindHub/packmind-mcp-server"
       ],
       "env": {
         "PACKMIND_API_KEY": "YOUR_API_KEY"
