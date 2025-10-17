@@ -1,5 +1,9 @@
 # Publishing Guide
 
+This guide explains how to publish new versions of the Packmind MCP Server to GitHub Packages.
+
+For the official repository, see: https://github.com/PackmindHub/packmind-mcp-server
+
 ## First-Time Setup
 
 Before the automatic publishing workflow can work, you need to authenticate with GitHub Packages:
@@ -14,7 +18,7 @@ Before the automatic publishing workflow can work, you need to authenticate with
 
 ## Publishing a New Version
 
-To publish a new version to GitHub Packages:
+To publish a new version to GitHub Packages (for maintainers of https://github.com/PackmindHub/packmind-mcp-server):
 
 1. Update the version in `package.json`:
    ```bash
@@ -43,16 +47,15 @@ You can also manually trigger the workflow from the GitHub Actions tab:
 
 ## Using the Published Package
 
-Once published, users can install it with (replace `OWNER` with the repository owner):
-
-```bash
-npx @OWNER/packmind-mcp-server
-```
-
-For the official PackmindHub repository:
+Once published from the official repository (https://github.com/PackmindHub/packmind-mcp-server), users can install it with:
 
 ```bash
 npx @PackmindHub/packmind-mcp-server
+```
+
+For forks, the package will be published under the fork owner's scope:
+```bash
+npx @OWNER/packmind-mcp-server
 ```
 
 For use in VS Code or Cursor, users should configure their MCP settings as described in the README.md.
